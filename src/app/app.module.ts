@@ -14,13 +14,15 @@ import { LoginComponent } from './login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { NzMessageService } from 'ng-zorro-antd';
+import { HomepageComponent } from './homepage/homepage.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

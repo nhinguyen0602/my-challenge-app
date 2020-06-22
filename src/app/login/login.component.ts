@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
   loading: boolean = false;
   returnUrl: string;
 
-  clientId: string = '10558520426-5epndmc1a1dgsjvffftbvn60rr6521hh.apps.googleusercontent.com';
   loginError: string;
   error: {};
   validateForm: FormGroup;

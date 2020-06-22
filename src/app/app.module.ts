@@ -12,6 +12,8 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from './shared/shared.module';
+import { LoginRoutingModule } from './login/login-routing.module';
+import { NzMessageService } from 'ng-zorro-antd';
 
 registerLocaleData(en);
 
@@ -26,9 +28,10 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    LoginRoutingModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{ provide: NZ_I18N, useValue: en_US }, NzMessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

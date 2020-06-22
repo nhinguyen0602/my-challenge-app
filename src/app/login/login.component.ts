@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     public message: NzMessageService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -28,6 +30,9 @@ export class LoginComponent implements OnInit {
       password: [null, [Validators.required]],
       remember: [true]
     });
+    if(localStorage.getItem('currentUser')){
+      this.router.navigate(['homepage'])
+    }
   }
 
   get email() { return this.validateForm.get('email'); }
@@ -39,5 +44,6 @@ export class LoginComponent implements OnInit {
     }
     localStorage.setItem('currentUser', this.email.value);
     this.validateForm.reset();
+    this.router.navigate(['homepage'])
   }
 }

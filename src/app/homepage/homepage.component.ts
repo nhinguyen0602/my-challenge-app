@@ -13,8 +13,7 @@ export class HomepageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('currentUser')){
-    }else{
+    if(localStorage.getItem('currentUser') === null){
       this.router.navigate(['login'])
     }
   }

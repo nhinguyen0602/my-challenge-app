@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-challenge-angular';
+  isCollapsed: boolean;
+  public isLogged(): boolean {
+    if(localStorage.getItem('currentUser')){
+      return true;
+    }
+    return false;
+  }
 }

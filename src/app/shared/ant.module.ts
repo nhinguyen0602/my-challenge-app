@@ -31,7 +31,8 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
-// import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 
 @NgModule({
   declarations: [],
@@ -67,7 +68,9 @@ import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
     NzCalendarModule,
     NzDividerModule,
     NzSkeletonModule,
-    NzInputModule
+    NzInputModule,
+    NzLayoutModule,
+    NzBreadCrumbModule
   ]
 })
 export class AppMaterialModule {

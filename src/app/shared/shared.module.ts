@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppMaterialModule } from './ant.module';
 import { NzFormModule } from 'ng-zorro-antd';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 
@@ -16,6 +17,7 @@ import { NzBadgeModule } from 'ng-zorro-antd/badge';
   exports: [
     FormsModule,
     ReactiveFormsModule,
+    AppMaterialModule,
     NzBadgeModule
   ]
 })

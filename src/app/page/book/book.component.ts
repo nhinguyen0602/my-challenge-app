@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class BookComponent implements OnInit {
 
   books: Book[]
+  searchText;
 
   constructor(
     private bookService: BookService,

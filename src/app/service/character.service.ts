@@ -11,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class CharacterService {
 
-  private characterUrl = environment.apiUrl + "/books"
+  private characterUrl = environment.apiUrl + "/characters"
 
   constructor(
     private http: HttpClient,

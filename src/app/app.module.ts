@@ -16,7 +16,7 @@ import { LoginRoutingModule } from './page/login/login-routing.module';
 import { NzMessageService } from 'ng-zorro-antd';
 import { HomepageComponent } from './page/homepage/homepage.component';
 import { BookComponent } from './page/book/book.component';
-import { CharacterComponent } from './character/character.component';
+import { CharacterComponent } from './page/character/character.component';
 
 registerLocaleData(en);
 

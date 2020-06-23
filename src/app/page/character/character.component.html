@@ -1,1 +1,32 @@
-<p>character works!</p>
+<nz-table #columnTable [nzData]="characters" [nzScroll]="{ x: '2000px' , y: '380px'}">
+    <thead>
+      <tr>
+        <th nzLeft>Name</th>
+        <th >gender</th>
+        <th>culture</th>
+        <th>born</th>
+        <th>died</th>
+        <th>titles</th>
+        <th>aliases</th>
+        <th >books</th>
+        <th>povBooks</th>
+        <th >tvSeries</th>
+        <th nzRight>playedBy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let data of characters">
+        <td nzLeft>{{ data.name }}</td>
+        <td>{{ data.gender }}</td>
+        <td>{{ data.culture }}</td>
+        <td>{{ data.born | date:"MM/dd/yy"}}</td>
+        <td>{{ data.died | date:"MM/dd/yy"}}</td>
+        <td>{{ data.titles }}</td>
+        <td>{{ data.aliases }}</td>
+        <td >{{ data.books.length }}</td>
+        <td>{{ data.povBooks.length }}</td>
+        <td>{{ data.tvSeries }}</td>
+        <td nzRight>{{ data.playedBy }}</td>
+      </tr>
+    </tbody>
+  </nz-table>

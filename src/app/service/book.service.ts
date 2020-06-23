@@ -32,5 +32,11 @@ export class BookService {
     )
   }
 
+  getBookDetail(url:string): Observable<Book> {
+    return this.http.get<Book>(url).pipe(
+      catchError(this.handleError<Book>('getBookDetail'))
+    )
+  }
+
 
 }

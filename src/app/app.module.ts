@@ -17,6 +17,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { HomepageComponent } from './page/homepage/homepage.component';
 import { BookComponent } from './page/book/book.component';
 import { CharacterComponent } from './page/character/character.component';
+import { BookDetailComponent } from './page/book-detail/book-detail.component';
 
 registerLocaleData(en);
 
@@ -26,7 +27,8 @@ registerLocaleData(en);
     LoginComponent,
     HomepageComponent,
     BookComponent,
-    CharacterComponent
+    CharacterComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,

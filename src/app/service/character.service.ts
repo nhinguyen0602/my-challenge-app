@@ -26,7 +26,7 @@ export class CharacterService {
     }
   }
 
-  getBooks(): Observable<Character[]> {
+  getCharacters(): Observable<Character[]> {
     return this.http.get<Character[]>(this.characterUrl).pipe(
       catchError(this.handleError<Character[]>('getCharacters'))
     )

@@ -1,0 +1,30 @@
+<nz-table #columnTable [nzData]="books" [nzScroll]="{ x: '2000px' , y: '380px'}">
+    <thead>
+      <tr>
+        <th nzLeft>Name</th>
+        <th >ISBN</th>
+        <th>Authors</th>
+        <th>Number Of Pages</th>
+        <th>Publisher</th>
+        <th>Country</th>
+        <th>Media Type</th>
+        <th >Released</th>
+        <th>Characters</th>
+        <th nzRight>POV Characters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let data of books">
+        <td nzLeft>{{ data.name }}</td>
+        <td>{{ data.isbn }}</td>
+        <td>{{ data.authors }}</td>
+        <td>{{ data.numberOfPages }}</td>
+        <td>{{ data.publisher }}</td>
+        <td>{{ data.mediaType }}</td>
+        <td>{{ data.country }}</td>
+        <td >{{ data.released | date:"MM/dd/yy" }}</td>
+        <td>{{ data.characters.length }}</td>
+        <td nzRight>{{ data.povCharacters.length }}</td>
+      </tr>
+    </tbody>
+  </nz-table>

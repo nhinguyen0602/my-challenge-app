@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/shared/model/book';
 import { BookService } from 'src/app/service/book.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -12,7 +13,8 @@ export class BookComponent implements OnInit {
   books: Book[]
 
   constructor(
-    private bookService: BookService
+    private bookService: BookService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +27,7 @@ export class BookComponent implements OnInit {
 
   selectBook(data){
     localStorage.setItem('bookCurrent',data.url);
+    this.router.navigate(['book-detail'])
   }
 
 }

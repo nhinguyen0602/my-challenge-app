@@ -10,11 +10,11 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './page/login/login.component';
 import { SharedModule } from './shared/shared.module';
-import { LoginRoutingModule } from './login/login-routing.module';
+import { LoginRoutingModule } from './page/login/login-routing.module';
 import { NzMessageService } from 'ng-zorro-antd';
-import { HomepageComponent } from './homepage/homepage.component';
+import { HomepageComponent } from './page/homepage/homepage.component';
 
 registerLocaleData(en);
 

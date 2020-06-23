@@ -15,8 +15,8 @@
     </thead>
     <tbody>
       <tr  *ngFor="let data of books">
-        <td nzLeft>{{ data.name }}</td>
-        <td>{{ data.isbn }}</td>
+        <td nzLeft (click)="selectBook(data)"><a routerLink="/book-detail">{{ data.name }}</a></td>
+        <td >{{ data.isbn }}</td>
         <td>{{ data.authors }}</td>
         <td>{{ data.numberOfPages }}</td>
         <td>{{ data.publisher }}</td>

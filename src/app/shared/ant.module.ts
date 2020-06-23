@@ -33,6 +33,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 
 @NgModule({
   declarations: [],
@@ -70,7 +71,8 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
     NzSkeletonModule,
     NzInputModule,
     NzLayoutModule,
-    NzBreadCrumbModule
+    NzBreadCrumbModule,
+    NzDescriptionsModule
   ]
 })
 export class AppMaterialModule {

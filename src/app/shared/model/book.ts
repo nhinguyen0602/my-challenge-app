@@ -1,6 +1,7 @@
 import { Character } from './character'
 
 export class Book{
+    url: string
     name: string
     isbn: string
 	authors: string[]

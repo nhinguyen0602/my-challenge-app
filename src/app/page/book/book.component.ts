@@ -23,4 +23,8 @@ export class BookComponent implements OnInit {
     this.bookService.getBooks().subscribe(books => this.books = books)
   }
 
+  selectBook(data){
+    localStorage.setItem('bookCurrent',data.url);
+  }
+
 }

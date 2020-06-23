@@ -1,3 +1,5 @@
+import { Character } from './character'
+
 export class Book{
     name: string
     isbn: string
@@ -6,5 +8,7 @@ export class Book{
 	publisher: string
 	country: string
 	mediaType: string
-	released: Date
+    released: Date
+    characters: Character[]
+    povCharacters: Character[]
 }

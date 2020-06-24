@@ -17,6 +17,7 @@ export class CharacterComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
+    this.getCharacters();
   }
 
   ngOnChanges():void{

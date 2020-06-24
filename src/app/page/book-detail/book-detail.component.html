@@ -1,4 +1,4 @@
-<nz-descriptions nzTitle="Book Detail">
+<nz-descriptions nzTitle="BOOK DETAIL" nzSize="middle">
     <nz-descriptions-item nzTitle="Name">{{book?.name}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="ISBN">{{book?.isbn}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Author">{{book?.authors}}</nz-descriptions-item>
@@ -8,3 +8,9 @@
     <nz-descriptions-item nzTitle="Media Type">{{book?.country}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Released">{{book?.released | date:"MM/dd/yy"}}</nz-descriptions-item>
   </nz-descriptions>
+  <nz-collapse nzAccordion nzBordered="false">
+    <nz-collapse-panel nzHeader="List Of Character" nzActive="false">
+      <app-character></app-character>
+    </nz-collapse-panel>
+  </nz-collapse>
+  

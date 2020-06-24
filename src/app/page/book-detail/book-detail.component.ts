@@ -11,7 +11,7 @@ export class BookDetailComponent implements OnInit {
   book: Book
   url: string
   constructor(
-    private bookService: BookService
+    private bookService: BookService,
   ) { }
 
   ngOnInit(): void {

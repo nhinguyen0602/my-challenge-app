@@ -9,9 +9,9 @@ import { forkJoin } from 'rxjs';
   styleUrls: ['./character.component.css']
 })
 export class CharacterComponent implements OnInit, OnChanges {
-  @Input() listCharaterUrls: string[] = [];
+  @Input() listCharaterUrls: string[] ;
   characters: Character[]
-
+  searchText;
   constructor(
     private characterService: CharacterService
   ) { }
@@ -25,7 +25,7 @@ export class CharacterComponent implements OnInit, OnChanges {
   }
 
   getCharacters(){
-    if(this.listCharaterUrls.length >0){
+    if(this.listCharaterUrls !== null){
       let listQuery = this.listCharaterUrls.map(url => this.characterService.getCharacter(url));
       forkJoin(listQuery).subscribe(results => this.characters = results);
     }

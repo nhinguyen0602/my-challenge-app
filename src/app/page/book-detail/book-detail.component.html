@@ -1,11 +1,12 @@
-<nz-descriptions nzTitle="BOOK DETAIL" nzSize="middle">
+<h1 style="color: blue;">BOOK DETAIL</h1>
+<nz-descriptions>
     <nz-descriptions-item nzTitle="Name">{{book?.name}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="ISBN">{{book?.isbn}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Author">{{book?.authors}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Number Of Pages">{{book?.numberOfPages}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Publisher">{{book?.publisher}}</nz-descriptions-item>
-    <nz-descriptions-item nzTitle="Country">{{book?.mediaType}}</nz-descriptions-item>
-    <nz-descriptions-item nzTitle="Media Type">{{book?.country}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Country">{{book?.country}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Media Type">{{book?.mediaType}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Released">{{book?.released | date:"MM/dd/yy"}}</nz-descriptions-item>
   </nz-descriptions>
   <nz-collapse nzAccordion nzBordered="false">

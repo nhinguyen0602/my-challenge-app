@@ -10,6 +10,6 @@ export class Book{
 	country: string
 	mediaType: string
     released: Date
-    characters: Character[]
-    povCharacters: Character[]
+    characters: string[]
+    povCharacters: string[]
 }

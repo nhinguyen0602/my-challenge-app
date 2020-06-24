@@ -31,4 +31,10 @@ export class CharacterService {
       catchError(this.handleError<Character[]>('getCharacters'))
     )
   }
+
+  getCharacter(url: string): Observable<Character> {
+    return this.http.get<Character>(url).pipe(
+      catchError(this.handleError<Character>('getCharacter'))
+    )
+  }
 }

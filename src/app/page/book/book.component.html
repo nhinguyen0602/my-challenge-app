@@ -1,3 +1,16 @@
+<div nz-row >
+  <div nz-col nzSpan="6" >
+    <h1 style="color:blue;font-size:200%;">BOOK LIST</h1>
+  </div>
+  <div nz-col nzSpan="6" nzOffset="12">
+    <nz-input-group [nzSuffix]="suffixIconSearch" >
+      <input type="text" nz-input [(ngModel)]="searchText" autocomplete="off" placeholder="input search text" />
+    </nz-input-group>
+  </div>
+</div>
+<ng-template #suffixIconSearch>
+   <i nz-icon nzType="search"></i>
+</ng-template>
 <nz-table #columnTable [nzData]="books" [nzScroll]="{ x: '2000px' , y: '380px'}">
     <thead>
       <tr>
@@ -10,13 +23,13 @@
         <th>Media Type</th>
         <th >Released</th>
         <th>Characters</th>
-        <th nzRight>POV Characters</th>
+        <th >POV Characters</th>
       </tr>
     </thead>
     <tbody>
-      <tr  *ngFor="let data of books">
-        <td nzLeft>{{ data.name }}</td>
-        <td>{{ data.isbn }}</td>
+      <tr  *ngFor="let data of books |filter:searchText">
+        <td nzLeft (click)="selectBook(data)"><a>{{ data.name }}</a></td>
+        <td >{{ data.isbn }}</td>
         <td>{{ data.authors }}</td>
         <td>{{ data.numberOfPages }}</td>
         <td>{{ data.publisher }}</td>
@@ -24,7 +37,7 @@
         <td>{{ data.country }}</td>
         <td >{{ data.released | date:"MM/dd/yy" }}</td>
         <td>{{ data.characters.length }}</td>
-        <td nzRight>{{ data.povCharacters.length }}</td>
+        <td >{{ data.povCharacters.length }}</td>
       </tr>
     </tbody>
   </nz-table>

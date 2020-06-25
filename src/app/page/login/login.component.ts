@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       remember: [true]
     });
     if(localStorage.getItem('currentUser')){
-      this.router.navigate(['homepage'])
+      this.router.navigate(['books'])
     }
   }
 
@@ -44,6 +44,6 @@ export class LoginComponent implements OnInit {
     }
     localStorage.setItem('currentUser', this.email.value);
     this.validateForm.reset();
-    this.router.navigate(['homepage'])
+    this.router.navigate(['books'])
   }
 }

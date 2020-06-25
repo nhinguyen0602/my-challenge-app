@@ -14,9 +14,10 @@ import { LoginComponent } from './page/login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { LoginRoutingModule } from './page/login/login-routing.module';
 import { NzMessageService } from 'ng-zorro-antd';
-import { HomepageComponent } from './page/homepage/homepage.component';
 import { BookComponent } from './page/book/book.component';
 import { CharacterComponent } from './page/character/character.component';
+import { BookDetailComponent } from './page/book-detail/book-detail.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 registerLocaleData(en);
 
@@ -24,9 +25,9 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     LoginComponent,
-    HomepageComponent,
     BookComponent,
-    CharacterComponent
+    CharacterComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,8 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    Ng2SearchPipeModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, NzMessageService],
   bootstrap: [AppComponent]

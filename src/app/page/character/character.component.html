@@ -1,32 +1,43 @@
+<div nz-row >
+  <div nz-col nzSpan="6" nzOffset="18">
+    <nz-input-group [nzSuffix]="suffixIconSearch" >
+      <input type="text" nz-input [(ngModel)]="searchText" autocomplete="off" placeholder="input search text" />
+    </nz-input-group>
+  </div>
+</div>
+<ng-template #suffixIconSearch>
+  <i nz-icon nzType="search"></i>
+</ng-template>
+<br>
 <nz-table #columnTable [nzData]="characters" [nzScroll]="{ x: '2000px' , y: '380px'}">
     <thead>
       <tr>
         <th nzLeft>Name</th>
-        <th >gender</th>
-        <th>culture</th>
-        <th>born</th>
-        <th>died</th>
-        <th>titles</th>
-        <th>aliases</th>
-        <th >books</th>
-        <th>povBooks</th>
-        <th >tvSeries</th>
-        <th nzRight>playedBy</th>
+        <th >Gender</th>
+        <th>Culture</th>
+        <th>Born</th>
+        <th>Died</th>
+        <th>Titles</th>
+        <th>Aliases</th>
+        <th >Books</th>
+        <th>POV Books</th>
+        <th >TV Series</th>
+        <th >Played By</th>
       </tr>
     </thead>
     <tbody>
-      <tr  *ngFor="let data of characters">
+      <tr  *ngFor="let data of characters |filter:searchText">
         <td nzLeft>{{ data.name }}</td>
         <td>{{ data.gender }}</td>
         <td>{{ data.culture }}</td>
-        <td>{{ data.born | date:"MM/dd/yy"}}</td>
-        <td>{{ data.died | date:"MM/dd/yy"}}</td>
+        <td>{{ data.born }}</td>
+        <td>{{ data.died }}</td>
         <td>{{ data.titles }}</td>
         <td>{{ data.aliases }}</td>
         <td >{{ data.books.length }}</td>
         <td>{{ data.povBooks.length }}</td>
         <td>{{ data.tvSeries }}</td>
-        <td nzRight>{{ data.playedBy }}</td>
+        <td >{{ data.playedBy }}</td>
       </tr>
     </tbody>
   </nz-table>

@@ -18,6 +18,7 @@ import { BookComponent } from './page/book/book.component';
 import { CharacterComponent } from './page/character/character.component';
 import { BookDetailComponent } from './page/book-detail/book-detail.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CharacterDetailComponent } from './page/character-detail/character-detail.component';
 
 registerLocaleData(en);
 
@@ -27,7 +28,8 @@ registerLocaleData(en);
     LoginComponent,
     BookComponent,
     CharacterComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    CharacterDetailComponent
   ],
   imports: [
     BrowserModule,

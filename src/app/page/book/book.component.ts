@@ -31,7 +31,8 @@ export class BookComponent implements OnInit {
 
   selectBook(data){
     localStorage.setItem('bookCurrent',data.url);
-    this.router.navigate(['book-detail'])
+    var id = data.url.split("/").slice(-1).pop()
+    this.router.navigate(['book-detail',id])
   }
 
 }

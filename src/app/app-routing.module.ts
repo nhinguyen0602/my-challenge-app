@@ -16,7 +16,7 @@ const routes: Routes = [
     component: CharacterComponent
   },
   { 
-    path: 'book-detail',
+    path: 'book-detail/:id',
     component: BookDetailComponent
   }
 ];

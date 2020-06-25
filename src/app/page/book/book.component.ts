@@ -19,6 +19,9 @@ export class BookComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('currentUser') === null){
+      this.router.navigate(['login'])
+    }
     this.getBooks();
   }
 

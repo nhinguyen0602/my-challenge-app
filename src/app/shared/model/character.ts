@@ -9,7 +9,6 @@ export class Character{
 	died: Date
 	titles: string[]
 	aliases: string[]
-	// allegiances: 
 	books: Book[]
 	povBooks: Book[]
 	tvSeries: string[]

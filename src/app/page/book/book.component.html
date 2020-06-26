@@ -1,6 +1,6 @@
 <div nz-row >
   <div nz-col nzSpan="6" >
-    <h1 style="color:blue;font-size:200%;">BOOK LIST</h1>
+    <h1 style="color:rgb(4, 4, 39);font-size:35px;font-weight: 600;">BOOK LIST</h1>
   </div>
   <div nz-col nzSpan="6" nzOffset="12">
     <nz-input-group [nzSuffix]="suffixIconSearch" >
@@ -14,7 +14,7 @@
 <nz-table #columnTable [nzData]="books" [nzScroll]="{ x: '2000px' , y: '380px'}">
     <thead>
       <tr>
-        <th nzLeft>Name</th>
+        <th nzLeft style="color:rgb(20, 1, 4)">Name</th>
         <th >ISBN</th>
         <th>Authors</th>
         <th>Number Of Pages</th>
@@ -28,8 +28,8 @@
     </thead>
     <tbody>
       <tr  *ngFor="let data of books |filter:searchText">
-        <td nzLeft (click)="selectBook(data)"><a>{{ data.name }}</a></td>
-        <td >{{ data.isbn }}</td>
+        <td nzLeft (click)="selectBook(data)"><a style="color: rgb(2, 2, 133);">{{ data.name }}</a></td>
+        <td >{{ data.isbn }}</td> 
         <td>{{ data.authors }}</td>
         <td>{{ data.numberOfPages }}</td>
         <td>{{ data.publisher }}</td>

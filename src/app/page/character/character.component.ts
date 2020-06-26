@@ -13,6 +13,7 @@ export class CharacterComponent implements OnInit, OnChanges {
   @Input() listCharaterUrls: string[] ;
   characters: Character[]
   searchText;
+  isLoading: boolean = false
   constructor(
     private characterService: CharacterService,
     private router: Router
@@ -27,13 +28,22 @@ export class CharacterComponent implements OnInit, OnChanges {
   }
 
   getCharacters(){
+    this.isLoading = true
     if(this.listCharaterUrls !== null){
       let listQuery = this.listCharaterUrls.map(url => this.characterService.getCharacter(url));
-      forkJoin(listQuery).subscribe(results => this.characters = results);
+      forkJoin(listQuery).subscribe(results => {
+           this.characters = results
+           this.isLoading = false
+          }
+        );
     }
     else{
-    this.characterService.getCharacters().subscribe(characters => this.characters = characters)
+    this.characterService.getCharacters().subscribe(characters => {
+      this.characters = characters
+      this.isLoading = false
+    })
     }
+   
   }
 
   selectCharacter(data){

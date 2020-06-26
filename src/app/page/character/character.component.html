@@ -9,7 +9,7 @@
   <i nz-icon nzType="search"></i>
 </ng-template>
 <br>
-<nz-table #columnTable [nzData]="characters" [nzScroll]="{ x: '2000px' , y: '380px'}">
+<nz-table #columnTable [nzLoading]="isLoading" [nzData]="characters" [nzScroll]="{ x: '2000px' , y: '380px'}">
     <thead>
       <tr>
         <th nzLeft>Name</th>

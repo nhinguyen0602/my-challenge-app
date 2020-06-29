@@ -11,33 +11,23 @@
 <ng-template #suffixIconSearch>
    <i nz-icon nzType="search"></i>
 </ng-template>
-<nz-table #fixedTable [nzData]="books" [nzScroll]="{ x: '2000px' , y: '380px'}" >
+<nz-table #fixedTable [nzData]="books" [nzScroll]="{ y: '380px'}" >
     <thead>
       <tr>
-        <th nzLeft style="color:rgb(20, 1, 4)">Name</th>
+        <th style="color:rgb(20, 1, 4)">Name</th>
         <th >ISBN</th>
         <th>Authors</th>
         <th>Number Of Pages</th>
-        <th>Publisher</th>
-        <th>Country</th>
-        <th>Media Type</th>
         <th >Released</th>
-        <th>Characters</th>
-        <th >POV Characters</th>
       </tr>
     </thead>
     <tbody>
       <tr  *ngFor="let data of fixedTable.data |filter:searchText">
-        <td nzLeft (click)="selectBook(data.url)"><a style="color: rgb(2, 2, 133);">{{ data.name }}</a></td>
+        <td (click)="selectBook(data.url)"><a style="color: rgb(2, 2, 133);">{{ data.name }}</a></td>
         <td >{{ data.isbn }}</td> 
         <td>{{ data.authors }}</td>
         <td>{{ data.numberOfPages }}</td>
-        <td>{{ data.publisher }}</td>
-        <td>{{ data.mediaType }}</td>
-        <td>{{ data.country }}</td>
         <td >{{ data.released }}</td>
-        <td>{{ data.characters.length }}</td>
-        <td >{{ data.povCharacters.length }}</td>
       </tr>
     </tbody>
   </nz-table>

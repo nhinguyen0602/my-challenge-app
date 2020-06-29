@@ -22,7 +22,7 @@ export class CharacterComponent implements OnInit, OnChanges {
     this.config = {
       itemsPerPage: 5,
       currentPage: 1,
-      totalItems: this.characters.length
+      totalItems: 1000
     };
   }
 

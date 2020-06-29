@@ -32,7 +32,8 @@ import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 @NgModule({
   declarations: [],
   imports: [CommonModule, FormsModule, NzFormModule, ReactiveFormsModule, NzBadgeModule,
@@ -71,6 +72,8 @@ import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
     NzLayoutModule,
     NzBreadCrumbModule,
     NzDescriptionsModule,
+    NgxPaginationModule,
+    NzPaginationModule
   ]
 })
 export class AppMaterialModule {

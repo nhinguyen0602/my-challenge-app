@@ -11,7 +11,7 @@ import { AlertService } from './alert.service';
 })
 export class BookService {
 
-  private bookUrl = environment.apiUrl + "/books"
+  private bookUrl = environment.apiUrl + '/books';
 
   constructor(
     private http: HttpClient,
@@ -23,19 +23,19 @@ export class BookService {
     return (error: any): Observable<T> => {
       this.alertService.error(`${operation} failed: ${error.alertService}`);
       return of(result as T);
-    }
+    };
   }
 
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.bookUrl).pipe(
       catchError(this.handleError<Book[]>('getBooks'))
-    )
+    );
   }
 
-  getBookDetail(url:string): Observable<Book> {
+  getBookDetail(url: string): Observable<Book> {
     return this.http.get<Book>(url).pipe(
       catchError(this.handleError<Book>('getBookDetail'))
-    )
+    );
   }
 
 

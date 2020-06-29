@@ -4,6 +4,7 @@ import { BookComponent } from './page/book/book.component';
 import { CharacterComponent } from './page/character/character.component';
 import { BookDetailComponent } from './page/book-detail/book-detail.component';
 import { CharacterDetailComponent } from './page/character-detail/character-detail.component';
+import { HouseComponent } from './page/house/house.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'character-detail/:id',
     component: CharacterDetailComponent
+  },
+  {
+    path: 'houses',
+    component: HouseComponent
   }
 ];
 

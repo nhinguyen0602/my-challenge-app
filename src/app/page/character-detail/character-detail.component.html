@@ -7,4 +7,15 @@
     <nz-descriptions-item nzTitle="Died date">{{character?.died}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Tiltes">{{character?.titles}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Aliases">{{character?.aliases}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Played By">{{character?.playedBy}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="TV Series">{{character?.tvSeries}}</nz-descriptions-item>
   </nz-descriptions>
+  <nz-collapse nzAccordion nzBordered="false">
+    <nz-collapse-panel nzHeader="List Of House" nzActive="false">
+      <ul nz-list [nzDataSource]="houses" nzBordered nzSize="large">
+        <li nz-list-item *ngFor="let item of houses" nzNoFlex>
+          {{ item.name }}
+        </li>
+      </ul>
+    </nz-collapse-panel>
+  </nz-collapse>

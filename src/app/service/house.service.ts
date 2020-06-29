@@ -31,4 +31,10 @@ export class HouseService {
     );
   }
 
+  getHouse(url: string): Observable<House> {
+    return this.http.get<House>(url).pipe(
+      catchError(this.handleError<House>('getHouse'))
+    );
+  }
+
 }

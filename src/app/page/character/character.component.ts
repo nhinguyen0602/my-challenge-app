@@ -14,17 +14,10 @@ export class CharacterComponent implements OnInit, OnChanges {
   public characters: Character[];
   public searchText;
   public isLoading = false;
-  public config: any;
   constructor(
     private characterService: CharacterService,
     private router: Router
-  ) {
-    this.config = {
-      itemsPerPage: 5,
-      currentPage: 1,
-      totalItems: 1000
-    };
-  }
+  ) {}
 
   ngOnInit(): void {
     this.getCharacters();
@@ -49,10 +42,6 @@ export class CharacterComponent implements OnInit, OnChanges {
   selectCharacter(url){
     localStorage.setItem('characterCurrent', url);
     this.router.navigate(['character-detail', url.split('/').slice(-1).pop()]);
-  }
-
-  pageChanged(event){
-    this.config.currentPage = event;
   }
 
 }

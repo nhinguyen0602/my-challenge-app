@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/shared/model/character';
 import { CharacterService } from 'src/app/service/character.service';
+import { House } from 'src/app/shared/model/house';
+import { HouseService } from 'src/app/service/house.service';
 
 @Component({
   selector: 'app-character-detail',
@@ -11,9 +13,12 @@ export class CharacterDetailComponent implements OnInit {
 
   public character: Character;
   private url: string;
+  public houses: House[] = [];
+  public house: House;
 
   constructor(
-    private characterService: CharacterService
+    private characterService: CharacterService,
+    private houseService: HouseService
   ) { }
 
   ngOnInit(): void {
@@ -22,7 +27,7 @@ export class CharacterDetailComponent implements OnInit {
 
   getCharacter(){
     this.url = localStorage.getItem('characterCurrent');
-    this.characterService.getCharacter(this.url).subscribe(charater => this.character = charater);
+    this.characterService.getCharacter(this.url).subscribe(charater => this.character = charater );
   }
 
 }

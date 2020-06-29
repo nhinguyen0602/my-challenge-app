@@ -27,7 +27,7 @@
     </thead>
     <tbody>
       <tr  *ngFor="let data of characters |filter:searchText">
-        <td nzLeft (click)="selectCharacter(data)"><a>{{ data.name }}</a></td>
+        <td nzLeft (click)="selectCharacter(data.url)"><a>{{ data.name }}</a></td>
         <td> {{ data.gender }}</td>
         <td>{{ data.culture }}</td>
         <td>{{ data.born }}</td>

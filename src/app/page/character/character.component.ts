@@ -29,7 +29,7 @@ export class CharacterComponent implements OnInit, OnChanges {
 
   getCharacters(){
     this.isLoading = true
-    if(this.listCharaterUrls !== null){
+    if(this.listCharaterUrls && this.listCharaterUrls.length){
       let listQuery = this.listCharaterUrls.map(url => this.characterService.getCharacter(url));
       forkJoin(listQuery).subscribe(results => {
            this.characters = results
@@ -37,19 +37,11 @@ export class CharacterComponent implements OnInit, OnChanges {
           }
         );
     }
-    else{
-    this.characterService.getCharacters().subscribe(characters => {
-      this.characters = characters
-      this.isLoading = false
-    })
-    }
-   
   }
 
-  selectCharacter(data){
-    localStorage.setItem('characterCurrent',data.url);
-    var id = data.url.split("/").slice(-1).pop()
-    this.router.navigate(['character-detail',id])
+  selectCharacter(url){
+    localStorage.setItem('characterCurrent',url);
+    this.router.navigate(['character-detail',url.split("/").slice(-1).pop()])
   }
 
 }

@@ -13,10 +13,7 @@ export class AppComponent {
     private router: Router
   ) { }
   public isLogged(): boolean {
-    if(localStorage.getItem('currentUser')){
-      return true;
-    }
-    return false;
+    return !!localStorage.getItem('currentUser');
   }
 
   logout(){

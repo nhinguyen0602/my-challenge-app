@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  submitted = false;
-  loading: boolean = false;
-  returnUrl: string;
+  public submitted = false;
+  public loading: boolean = false;
+  public returnUrl: string;
 
   loginError: string;
   error: {};

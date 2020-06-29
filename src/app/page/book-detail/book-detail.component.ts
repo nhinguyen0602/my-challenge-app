@@ -8,19 +8,19 @@ import { BookService } from 'src/app/service/book.service';
   styleUrls: ['./book-detail.component.css']
 })
 export class BookDetailComponent implements OnInit {
-  book: Book
-  url: string
+  public book: Book;
+  private url: string;
   constructor(
     private bookService: BookService,
   ) { }
 
   ngOnInit(): void {
-    this.getBookDetail()
+    this.getBookDetail();
   }
 
   getBookDetail(){
-    this.url = localStorage.getItem('bookCurrent')
-    this.bookService.getBookDetail(this.url).subscribe(book => this.book = book)
+    this.url = localStorage.getItem('bookCurrent');
+    this.bookService.getBookDetail(this.url).subscribe(book => this.book = book);
   }
 
 }

@@ -28,7 +28,7 @@
     </thead>
     <tbody>
       <tr  *ngFor="let data of books |filter:searchText">
-        <td nzLeft (click)="selectBook(data)"><a style="color: rgb(2, 2, 133);">{{ data.name }}</a></td>
+        <td nzLeft (click)="selectBook(data.url)"><a style="color: rgb(2, 2, 133);">{{ data.name }}</a></td>
         <td >{{ data.isbn }}</td> 
         <td>{{ data.authors }}</td>
         <td>{{ data.numberOfPages }}</td>

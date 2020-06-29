@@ -9,19 +9,20 @@ import { CharacterService } from 'src/app/service/character.service';
 })
 export class CharacterDetailComponent implements OnInit {
 
-  character: Character
+  public character: Character;
+  private url: string;
 
   constructor(
     private characterService: CharacterService
   ) { }
 
   ngOnInit(): void {
-    this.getCharacter()
+    this.getCharacter();
   }
 
   getCharacter(){
-    var url = localStorage.getItem('characterCurrent')
-    this.characterService.getCharacter(url).subscribe(charater => this.character = charater)
+    this.url = localStorage.getItem('characterCurrent');
+    this.characterService.getCharacter(this.url).subscribe(charater => this.character = charater);
   }
 
 }

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class BookComponent implements OnInit {
 
-  books: Book[]
+  public books: Book[];
   searchText;
 
   constructor(
@@ -19,20 +19,19 @@ export class BookComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('currentUser') === null){
-      this.router.navigate(['login'])
+    if (!localStorage.getItem('currentUser')){
+      this.router.navigate(['login']);
     }
     this.getBooks();
   }
 
-  getBooks(){
-    this.bookService.getBooks().subscribe(books => this.books = books)
+  private getBooks(){
+    this.bookService.getBooks().subscribe(books => this.books = books);
   }
 
-  selectBook(data){
-    localStorage.setItem('bookCurrent',data.url);
-    var id = data.url.split("/").slice(-1).pop()
-    this.router.navigate(['book-detail',id])
+  public selectBook(url){
+    localStorage.setItem('bookCurrent', url);
+    this.router.navigate(['book-detail', url.split('/').slice(-1).pop()]);
   }
 
 }

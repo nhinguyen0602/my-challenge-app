@@ -1,1 +1,27 @@
-<p>house works!</p>
+<div nz-row >
+    <div nz-col nzSpan="6" >
+      <h1 style="color:rgb(4, 4, 39);font-size:35px;font-weight: 600;">HOUSE LIST</h1>
+    </div>
+    <div nz-col nzSpan="6" nzOffset="12">
+      <nz-input-group [nzSuffix]="suffixIconSearch" >
+        <input type="text" nz-input [(ngModel)]="searchText" autocomplete="off" placeholder="input search text" />
+      </nz-input-group>
+    </div>
+  </div>
+  <ng-template #suffixIconSearch>
+     <i nz-icon nzType="search"></i>
+  </ng-template>
+  <nz-table #fixedTable [nzData]="houses" [nzScroll]="{ y: '380px'}" >
+      <thead>
+        <tr>
+          <th style="color:rgb(20, 1, 4)">Name</th>
+          <th >Region</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let data of fixedTable.data |filter:searchText">
+          <td >{{ data.name }}</td>
+          <td >{{ data.region }}</td> 
+        </tr>
+      </tbody>
+    </nz-table>

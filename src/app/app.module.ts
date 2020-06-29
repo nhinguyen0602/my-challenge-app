@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,7 +29,7 @@ registerLocaleData(en);
     BookComponent,
     CharacterComponent,
     BookDetailComponent,
-    CharacterDetailComponent
+    CharacterDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +39,10 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     SharedModule,
     LoginRoutingModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, NzMessageService],
   bootstrap: [AppComponent]

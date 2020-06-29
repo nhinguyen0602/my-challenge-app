@@ -11,37 +11,48 @@ import { Router } from '@angular/router';
 })
 export class CharacterComponent implements OnInit, OnChanges {
   @Input() listCharaterUrls: string[] ;
-  characters: Character[]
-  searchText;
-  isLoading: boolean = false
+  public characters: Character[];
+  public searchText;
+  public isLoading = false;
+  public config: any;
   constructor(
     private characterService: CharacterService,
     private router: Router
-  ) { }
+  ) {
+    this.config = {
+      itemsPerPage: 5,
+      currentPage: 1,
+      totalItems: this.characters.length
+    };
+  }
 
   ngOnInit(): void {
     this.getCharacters();
   }
 
-  ngOnChanges():void{
+  ngOnChanges(): void{
     this.getCharacters();
   }
 
   getCharacters(){
-    this.isLoading = true
-    if(this.listCharaterUrls && this.listCharaterUrls.length){
-      let listQuery = this.listCharaterUrls.map(url => this.characterService.getCharacter(url));
+    this.isLoading = true;
+    if (this.listCharaterUrls && this.listCharaterUrls.length){
+      const listQuery = this.listCharaterUrls.map(url => this.characterService.getCharacter(url));
       forkJoin(listQuery).subscribe(results => {
-           this.characters = results
-           this.isLoading = false
+           this.characters = results;
+           this.isLoading = false;
           }
         );
     }
   }
 
   selectCharacter(url){
-    localStorage.setItem('characterCurrent',url);
-    this.router.navigate(['character-detail',url.split("/").slice(-1).pop()])
+    localStorage.setItem('characterCurrent', url);
+    this.router.navigate(['character-detail', url.split('/').slice(-1).pop()]);
+  }
+
+  pageChanged(event){
+    this.config.currentPage = event;
   }
 
 }

@@ -35,7 +35,8 @@ import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, FormsModule,NzFormModule,ReactiveFormsModule,NzBadgeModule,NzCollapseModule,NzEmptyModule],
+  imports: [CommonModule, FormsModule, NzFormModule, ReactiveFormsModule, NzBadgeModule,
+    NzCollapseModule, NzEmptyModule],
   exports: [
     NzModalModule,
     NzInputModule,
@@ -69,7 +70,7 @@ import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
     NzInputModule,
     NzLayoutModule,
     NzBreadCrumbModule,
-    NzDescriptionsModule
+    NzDescriptionsModule,
   ]
 })
 export class AppMaterialModule {

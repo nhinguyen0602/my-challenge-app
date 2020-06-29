@@ -8,19 +8,19 @@ import { CharacterDetailComponent } from './page/character-detail/character-deta
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/books' },
-  { 
+  {
     path: 'books',
     component: BookComponent
   },
-  { 
+  {
     path: 'characters',
     component: CharacterComponent
   },
-  { 
+  {
     path: 'book-detail/:id',
     component: BookDetailComponent
   },
-  { 
+  {
     path: 'character-detail/:id',
     component: CharacterDetailComponent
   }

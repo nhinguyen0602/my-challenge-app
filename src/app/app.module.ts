@@ -19,6 +19,7 @@ import { CharacterComponent } from './page/character/character.component';
 import { BookDetailComponent } from './page/book-detail/book-detail.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CharacterDetailComponent } from './page/character-detail/character-detail.component';
+import { HouseComponent } from './house/house.component';
 
 registerLocaleData(en);
 
@@ -30,6 +31,7 @@ registerLocaleData(en);
     CharacterComponent,
     BookDetailComponent,
     CharacterDetailComponent,
+    HouseComponent,
   ],
   imports: [
     BrowserModule,

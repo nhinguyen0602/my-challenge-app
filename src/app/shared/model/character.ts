@@ -8,6 +8,7 @@ died: Date;
 titles: string[];
 aliases: string[];
 books: string[];
+allegiances: string[];
 povBooks: string[];
 tvSeries: string[];
 playedBy: string[];

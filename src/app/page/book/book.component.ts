@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class BookComponent implements OnInit {
 
   public books: Book[];
-  searchText;
+  public searchText;
+  public isLoading = false;
 
   constructor(
     private bookService: BookService,
@@ -26,7 +27,11 @@ export class BookComponent implements OnInit {
   }
 
   private getBooks(){
-    this.bookService.getBooks().subscribe(books => this.books = books);
+    this.isLoading = true;
+    this.bookService.getBooks().subscribe(books => {
+      this.books = books;
+      this.isLoading = false;
+    });
   }
 
   public selectBook(url){

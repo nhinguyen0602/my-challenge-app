@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AlertService } from './alert.service';
 import { Observable, of } from 'rxjs';
 import { House } from '../shared/model/house';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,12 @@ export class HouseService {
   }
 
   getHouses(): Observable<House[]> {
-    return this.http.get<House[]>(this.houseUrl).pipe(
+    return this.http.get<House[]>(this.houseUrl).pipe(map(res => {
+      if (!res){
+        throw new Error('Value expected!');
+      }
+      return res;
+    }),
       catchError(this.handleError<House[]>('getHouses'))
     );
   }

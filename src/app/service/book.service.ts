@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Book } from '../shared/model/book';
 import { AlertService } from './alert.service';
 
@@ -27,7 +27,12 @@ export class BookService {
   }
 
   getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.bookUrl).pipe(
+    return this.http.get<Book[]>(this.bookUrl).pipe(map(res => {
+      if (!res){
+        throw new Error('Value expected!');
+      }
+      return  res;
+    }),
       catchError(this.handleError<Book[]>('getBooks'))
     );
   }

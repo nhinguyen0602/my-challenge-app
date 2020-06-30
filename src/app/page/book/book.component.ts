@@ -30,7 +30,6 @@ export class BookComponent implements OnInit {
   }
 
   public selectBook(url){
-    localStorage.setItem('bookCurrent', url);
     this.router.navigate(['book-detail', url.split('/').slice(-1).pop()]);
   }
 

@@ -11,7 +11,7 @@ import { AlertService } from './alert.service';
 })
 export class BookService {
 
-  private bookUrl = environment.apiUrl + '/books';
+  public bookUrl = environment.apiUrl + '/books/';
 
   constructor(
     private http: HttpClient,

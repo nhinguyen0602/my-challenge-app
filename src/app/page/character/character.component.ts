@@ -40,7 +40,6 @@ export class CharacterComponent implements OnInit, OnChanges {
   }
 
   selectCharacter(url){
-    localStorage.setItem('characterCurrent', url);
     this.router.navigate(['character-detail', url.split('/').slice(-1).pop()]);
   }
 

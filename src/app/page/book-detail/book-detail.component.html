@@ -1,6 +1,6 @@
 <h1 style="color:rgb(4, 4, 39);font-size:35px;font-weight: 600;">BOOK DETAIL</h1>
 <div *ngIf="isLoading; else elseBlock">
-  <nz-spin nzSimple style="text-align: center;"></nz-spin>
+  <nz-spin nzSimple [nzSize]="'large'" style="text-align: center;"></nz-spin>
 </div>
 <ng-template #elseBlock>
 <nz-descriptions>

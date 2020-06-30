@@ -3,6 +3,9 @@ import { Character } from 'src/app/shared/model/character';
 import { CharacterService } from 'src/app/service/character.service';
 import { House } from 'src/app/shared/model/house';
 import { Router } from '@angular/router';
+import { HouseService } from 'src/app/service/house.service';
+import { forkJoin } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-character-detail',
@@ -14,11 +17,11 @@ export class CharacterDetailComponent implements OnInit {
   public character: Character;
   private url: string;
   public houses: House[] = [];
-  public house: House;
 
   constructor(
     private characterService: CharacterService,
-    private router: Router
+    private router: Router,
+    private houseService: HouseService
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +30,12 @@ export class CharacterDetailComponent implements OnInit {
 
   getCharacter(){
     this.url = this.characterService.characterUrl + this.router.url.split('/').slice(-1).pop();
-    this.characterService.getCharacter(this.url).subscribe(charater => this.character = charater );
+    this.characterService.getCharacter(this.url).pipe(switchMap(character => {
+      this.character = character;
+      const listQuery = this.character.allegiances.map(url => this.houseService.getHouse(url));
+      return forkJoin(listQuery);
+    })).subscribe(houses => {
+      this.houses = houses;
+    });
   }
-
 }

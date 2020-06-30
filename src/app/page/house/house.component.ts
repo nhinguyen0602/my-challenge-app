@@ -11,6 +11,7 @@ export class HouseComponent implements OnInit {
 
   public houses: House[];
   public searchText;
+  public isLoading = false;
 
   constructor(
     private houseService: HouseService
@@ -21,6 +22,10 @@ export class HouseComponent implements OnInit {
   }
 
   getHouses(){
-    this.houseService.getHouses().subscribe(houses => this.houses = houses);
+    this.isLoading = true;
+    this.houseService.getHouses().subscribe(houses => {
+      this.houses = houses;
+      this.isLoading = false;
+    });
   }
 }

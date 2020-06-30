@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class BookDetailComponent implements OnInit {
   public book: Book;
   private url: string;
+  public isLoading = true;
   constructor(
     private bookService: BookService,
     private router: Router
@@ -22,7 +23,10 @@ export class BookDetailComponent implements OnInit {
 
   getBookDetail(){
     this.url = this.bookService.bookUrl + this.router.url.split('/').slice(-1).pop();
-    this.bookService.getBookDetail(this.url).subscribe(book => this.book = book);
+    this.bookService.getBookDetail(this.url).subscribe(book => {
+      this.book = book;
+      this.isLoading = false;
+    });
   }
 
 }

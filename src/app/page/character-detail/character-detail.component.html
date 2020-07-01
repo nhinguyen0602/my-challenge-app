@@ -11,19 +11,20 @@
     <nz-descriptions-item nzTitle="TV Series">{{character?.tvSeries}}</nz-descriptions-item>
   </nz-descriptions>
   <nz-collapse nzAccordion nzBordered="false">
-    <nz-collapse-panel nzHeader="House Of Character" nzActive="false">
-      <nz-list nzBordered >
-        <nz-list-item *ngFor="let item of houses">
-          <span nz-typography><mark>{{item.name}}</mark></span>
-          <h4>{{ item.region }}</h4>
-        </nz-list-item>
-      </nz-list>
+    <nz-collapse-panel nzHeader="Houses Of Character" nzActive="false">
+      <app-house [listHouseUrls]="character.allegiances"></app-house>
     </nz-collapse-panel>
   </nz-collapse>
   <br>
   <nz-collapse nzAccordion nzBordered="false">
     <nz-collapse-panel nzHeader="Books Of Character" nzActive="false">
       <app-book [listBookUrls]="character.books"></app-book>
+    </nz-collapse-panel>
+  </nz-collapse>
+  <br>
+  <nz-collapse nzAccordion nzBordered="false">
+    <nz-collapse-panel nzHeader="POVBooks Of Character" nzActive="false">
+      <app-book [listBookUrls]="character.povBooks"></app-book>
     </nz-collapse-panel>
   </nz-collapse>
   

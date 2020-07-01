@@ -21,7 +21,6 @@ export class CharacterDetailComponent implements OnInit {
   constructor(
     private characterService: CharacterService,
     private router: Router,
-    private houseService: HouseService
   ) { }
 
   ngOnInit(): void {
@@ -30,12 +29,6 @@ export class CharacterDetailComponent implements OnInit {
 
   getCharacter(){
     this.url = this.characterService.characterUrl + this.router.url.split(`/`).slice(-1).pop();
-    this.characterService.getCharacter(this.url).pipe(switchMap(character => {
-      this.character = character;
-      const listQuery = this.character.allegiances.map(url => this.houseService.getHouse(url));
-      return forkJoin(listQuery);
-    })).subscribe(houses => {
-      this.houses = houses;
-    });
+    this.characterService.getCharacter(this.url).subscribe(character => this.character = character);
   }
 }

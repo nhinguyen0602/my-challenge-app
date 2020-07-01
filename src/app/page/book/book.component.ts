@@ -31,7 +31,6 @@ export class BookComponent implements OnInit {
 
   private getBooks(){
     this.isLoading = true;
-    console.log(this.listBookUrls[0]);
     if (this.listBookUrls && this.listBookUrls.length){
       const listQuery = this.listBookUrls.map(url => this.bookService.getBookDetail(url));
       forkJoin(listQuery).subscribe(results => {

@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
   public loading = false;
   public returnUrl: string;
 
-  loginError: string;
   error: {};
   validateForm: FormGroup;
 

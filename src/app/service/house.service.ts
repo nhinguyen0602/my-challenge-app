@@ -11,35 +11,18 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class HouseService {
 
-  private houseUrl = environment.apiUrl + '/houses';
+  private houseUrl = environment.apiUrl + `/houses`;
 
   constructor(
-    private http: HttpClient,
-    private alertService: AlertService
+    private http: HttpClient
   ) { }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      this.alertService.error(`${operation} failed: ${error.alertService}`);
-      return of(result as T);
-    };
-  }
-
   getHouses(): Observable<House[]> {
-    return this.http.get<House[]>(this.houseUrl).pipe(map(res => {
-      if (!res){
-        throw new Error('Value expected!');
-      }
-      return res;
-    }),
-      catchError(this.handleError<House[]>('getHouses'))
-    );
+    return this.http.get<House[]>(this.houseUrl).pipe(map(res => res));
   }
 
   getHouse(url: string): Observable<House> {
-    return this.http.get<House>(url).pipe(
-      catchError(this.handleError<House>('getHouse'))
-    );
+    return this.http.get<House>(url).pipe(map(res => res));
   }
 
 }

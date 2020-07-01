@@ -4,7 +4,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
@@ -20,6 +20,7 @@ import { BookDetailComponent } from './page/book-detail/book-detail.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CharacterDetailComponent } from './page/character-detail/character-detail.component';
 import { HouseComponent } from './page/house/house.component';
+import { HttpErrorInterceptor } from './interceptors/error-handler.interceptor';
 
 registerLocaleData(en);
 
@@ -46,7 +47,8 @@ registerLocaleData(en);
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }, NzMessageService],
+  providers: [{ provide: NZ_I18N, useValue: en_US }, NzMessageService,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

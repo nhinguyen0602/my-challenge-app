@@ -1,6 +1,6 @@
 <nz-layout class="layout" >
     <nz-header *ngIf="isLogged()">
-      <div style="margin-left: 20px;">
+      <div>
         <a routerLink="/books">
         <img class="logo" src="../assets/image/logo.jpeg">
       </a>
@@ -8,13 +8,13 @@
       <ul nz-menu nzTheme="dark" nzMode="horizontal">
         <li nz-menu-item routerLink="/books">BOOKS</li>
         <li nz-menu-item routerLink="/houses">HOUSE</li>
-        <li nz-menu-item style="margin-left: 800px;">
-          <button nz-button nzType="default" (click)="logout()">Logout</button>
+        <li nz-menu-item >
+          <button nz-button  nzType="default" (click)="logout()">Logout</button>
         </li>
       </ul>
     </nz-header>
     <nz-content>
-      <div class="inner-content" style="background-color: rgba(243, 242, 242, 0.931);">
+      <div class="inner-content">
         <router-outlet></router-outlet>
       </div>
     </nz-content>

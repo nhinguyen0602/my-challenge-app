@@ -6,7 +6,7 @@
     width: 75px;
     height: 32px;
     background: #fff;
-    margin: 16px 24px 16px 30px;
+    margin: 20px 24px 20px 30px;
     float: left;
   }
 
@@ -30,7 +30,7 @@
   }
 
   .inner-content {
-    background: #fff;
+    background: rgba(243, 242, 242, 0.931);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -40,4 +40,8 @@
 
   nz-footer {
     text-align: center;
+  }
+
+  button {
+    margin-left: 800px;
   }

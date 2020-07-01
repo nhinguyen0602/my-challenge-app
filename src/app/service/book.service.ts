@@ -11,36 +11,20 @@ import { AlertService } from './alert.service';
 })
 export class BookService {
 
-  public bookUrl = environment.apiUrl + '/books/';
+  public bookUrl = environment.apiUrl + `/books/`;
 
   constructor(
     private http: HttpClient,
-    private alertService: AlertService
   ) {
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      this.alertService.error(`${operation} failed: ${error.alertService}`);
-      return of(result as T);
-    };
-  }
 
   getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.bookUrl).pipe(map(res => {
-      if (!res){
-        throw new Error('Value expected!');
-      }
-      return  res;
-    }),
-      catchError(this.handleError<Book[]>('getBooks'))
-    );
+    return this.http.get<Book[]>(this.bookUrl).pipe(map(res => res));
   }
 
   getBookDetail(url: string): Observable<Book> {
-    return this.http.get<Book>(url).pipe(
-      catchError(this.handleError<Book>('getBookDetail'))
-    );
+    return this.http.get<Book>(url).pipe(map(res => res));
   }
 
 

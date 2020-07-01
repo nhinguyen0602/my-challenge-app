@@ -35,7 +35,7 @@ export class BookComponent implements OnInit {
   }
 
   public selectBook(url){
-    this.router.navigate(['book-detail', url.split('/').slice(-1).pop()]);
+    this.router.navigate(['book-detail', url.split(`/`).slice(-1).pop()]);
   }
 
 }

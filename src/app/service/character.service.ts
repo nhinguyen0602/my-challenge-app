@@ -11,35 +11,18 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class CharacterService {
 
-  public characterUrl = environment.apiUrl + '/characters/';
+  public characterUrl = environment.apiUrl + `/characters/`;
 
   constructor(
-    private http: HttpClient,
-    private alertService: AlertService
+    private http: HttpClient
   ) {
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      this.alertService.error(`${operation} failed: ${error.alertService}`);
-      return of(result as T);
-    };
-  }
-
   getCharacters(): Observable<Character[]> {
-    return this.http.get<Character[]>(this.characterUrl).pipe(map(res => {
-      if (!res){
-        throw new Error('Value expected!');
-      }
-      return res;
-    }),
-    catchError(this.handleError<Character[]>('getCharacters'))
-    );
+    return this.http.get<Character[]>(this.characterUrl).pipe(map(res => res));
   }
 
   getCharacter(url: string): Observable<Character> {
-    return this.http.get<Character>(url).pipe(
-      catchError(this.handleError<Character>('getCharacter'))
-    );
+    return this.http.get<Character>(url).pipe(map(res => res));
   }
 }

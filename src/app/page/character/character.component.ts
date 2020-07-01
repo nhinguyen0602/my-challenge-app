@@ -40,7 +40,7 @@ export class CharacterComponent implements OnInit, OnChanges {
   }
 
   selectCharacter(url){
-    this.router.navigate(['character-detail', url.split('/').slice(-1).pop()]);
+    this.router.navigate(['character-detail', url.split(`/`).slice(-1).pop()]);
   }
 
 }

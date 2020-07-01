@@ -22,7 +22,7 @@ export class BookDetailComponent implements OnInit {
   }
 
   getBookDetail(){
-    this.url = this.bookService.bookUrl + this.router.url.split('/').slice(-1).pop();
+    this.url = this.bookService.bookUrl + this.router.url.split(`/`).slice(-1).pop();
     this.bookService.getBookDetail(this.url).subscribe(book => {
       this.book = book;
       this.isLoading = false;

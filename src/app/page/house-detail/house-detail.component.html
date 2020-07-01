@@ -1,1 +1,14 @@
-<p>house-detail works!</p>
+<h1 style="color:rgb(4, 4, 39);font-size:35px;font-weight: 600;">HOUSE DETAIL</h1>
+<div *ngIf="isLoading; else elseBlock">
+  <nz-spin nzSimple [nzSize]="'large'" style="text-align: center;"></nz-spin>
+</div>
+<ng-template #elseBlock>
+<nz-descriptions>
+    <nz-descriptions-item nzTitle="House">{{house?.name}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Words">{{house?.words}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Seats">{{house?.seats}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Founded">{{house?.founded }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Ancestral Weapons">{{house?.ancestralWeapons }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Coat Of Arms">{{house?.coatOfArms}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Titles">{{house?.titles}}</nz-descriptions-item>
+  </nz-descriptions>

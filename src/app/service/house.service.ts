@@ -11,7 +11,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class HouseService {
 
-  private houseUrl = environment.apiUrl + `/houses`;
+  public houseUrl = environment.apiUrl + `/houses/`;
 
   constructor(
     private http: HttpClient

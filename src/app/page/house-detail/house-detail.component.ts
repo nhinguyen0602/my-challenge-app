@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { House } from 'src/app/shared/model/house';
+import { HouseService } from 'src/app/service/house.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-house-detail',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HouseDetailComponent implements OnInit {
 
-  constructor() { }
+  public house: House;
+  private url: string;
+  public isLoading = false;
+
+  constructor(
+    private houseService: HouseService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.getHouse();
+  }
+
+  getHouse(){
+    this.url = this.houseService.houseUrl + this.router.url.split(`/`).slice(-1).pop();
+    this.houseService.getHouse(this.url).subscribe(house => this.house = house);
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { House } from 'src/app/shared/model/house';
 import { HouseService } from 'src/app/service/house.service';
 import { forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-house',
@@ -16,7 +17,8 @@ export class HouseComponent implements OnInit {
   public isLoading = false;
 
   constructor(
-    private houseService: HouseService
+    private houseService: HouseService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,5 +37,9 @@ export class HouseComponent implements OnInit {
     });
   }
     this.isLoading = false;
+  }
+
+  selectHouse(url: string){
+    this.router.navigate(['house-detail', url.split(`/`).slice(-1).pop()]);
   }
 }

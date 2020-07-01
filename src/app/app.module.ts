@@ -21,7 +21,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CharacterDetailComponent } from './page/character-detail/character-detail.component';
 import { HouseComponent } from './page/house/house.component';
 import { HttpErrorInterceptor } from './interceptors/error-handler.interceptor';
-import { HouseDetailComponent } from './house-detail/house-detail.component';
+import { HouseDetailComponent } from './page/house-detail/house-detail.component';
 
 registerLocaleData(en);
 

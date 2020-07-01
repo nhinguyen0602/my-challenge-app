@@ -5,6 +5,7 @@ import { CharacterComponent } from './page/character/character.component';
 import { BookDetailComponent } from './page/book-detail/book-detail.component';
 import { CharacterDetailComponent } from './page/character-detail/character-detail.component';
 import { HouseComponent } from './page/house/house.component';
+import { HouseDetailComponent } from './page/house-detail/house-detail.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'houses',
     component: HouseComponent
+  },
+  {
+    path: 'house-detail/:id',
+    component: HouseDetailComponent
   }
 ];
 

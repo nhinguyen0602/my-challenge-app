@@ -20,7 +20,7 @@
       </thead>
       <tbody>
         <tr  *ngFor="let data of fixedTable.data |filter:searchText">
-          <td >{{ data.name }}</td>
+          <td (click)="selectHouse(data.url)"><a>{{ data.name }}</a></td>
           <td >{{ data.region }}</td> 
         </tr>
       </tbody>

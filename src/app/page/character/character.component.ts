@@ -33,10 +33,10 @@ export class CharacterComponent implements OnInit, OnChanges {
       const listQuery = this.listCharaterUrls.map(url => this.characterService.getCharacter(url));
       forkJoin(listQuery).subscribe(results => {
            this.characters = results;
-           this.isLoading = false;
           }
         );
     }
+    this.isLoading = false;
   }
 
   selectCharacter(url){

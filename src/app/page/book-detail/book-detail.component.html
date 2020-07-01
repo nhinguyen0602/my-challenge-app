@@ -18,4 +18,9 @@
       <app-character [listCharaterUrls]="book?.characters"></app-character>
     </nz-collapse-panel>
   </nz-collapse>
+  <nz-collapse nzAccordion nzBordered="false">
+    <nz-collapse-panel nzHeader="POV Character" nzActive="false">
+      <app-character [listCharaterUrls]="book?.povCharacters"></app-character>
+    </nz-collapse-panel>
+  </nz-collapse>
 </ng-template>

@@ -12,14 +12,11 @@ export class AlertService {
 
   constructor(private route: Router) {
 
-    //clear alert messages on route change unless 'keepAfterRouteChange flag is true
     this.route.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         if (this.keepAfterRouteChange) {
-          //only keep for a single route change
           this.keepAfterRouteChange = false;
         } else {
-          //clear alert message
           this.clear();
         }
       }
@@ -41,7 +38,6 @@ export class AlertService {
   }
 
   clear() {
-    //clear by calling subject.next() without parameters
     this.subject.next();
   }
 }

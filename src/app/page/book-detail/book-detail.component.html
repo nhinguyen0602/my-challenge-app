@@ -1,4 +1,8 @@
 <h1 style="color:rgb(4, 4, 39);font-size:35px;font-weight: 600;">BOOK DETAIL</h1>
+<div *ngIf="isLoading; else elseBlock">
+  <nz-spin nzSimple [nzSize]="'large'" style="text-align: center;"></nz-spin>
+</div>
+<ng-template #elseBlock>
 <nz-descriptions>
     <nz-descriptions-item nzTitle="Name">{{book?.name}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="ISBN">{{book?.isbn}}</nz-descriptions-item>
@@ -7,11 +11,24 @@
     <nz-descriptions-item nzTitle="Publisher">{{book?.publisher}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Country">{{book?.country}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Media Type">{{book?.mediaType}}</nz-descriptions-item>
-    <nz-descriptions-item nzTitle="Released">{{book?.released | date:"MM/dd/yy"}}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Released">{{book?.released }}</nz-descriptions-item>
   </nz-descriptions>
   <nz-collapse nzAccordion nzBordered="false">
     <nz-collapse-panel nzHeader="List Of Character" nzActive="false">
-      <app-character [listCharaterUrls]="book?.characters"></app-character>
+      <div *ngIf="book?.characters.length > 0; else empty">
+        <app-character [listCharaterUrls]="book?.characters"></app-character>
+      </div>
     </nz-collapse-panel>
   </nz-collapse>
-  
+  <br>
+  <nz-collapse nzAccordion nzBordered="false">
+    <nz-collapse-panel nzHeader="POV Character" nzActive="false">
+      <div *ngIf="book?.povCharacters.length > 0; else empty">
+        <app-character [listCharaterUrls]="book?.povCharacters"></app-character>
+      </div>
+    </nz-collapse-panel>
+  </nz-collapse>
+</ng-template>
+<ng-template #empty>
+  <i nz-icon nzType="warning" nzTheme="outline" ></i>
+</ng-template>

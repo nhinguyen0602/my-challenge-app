@@ -11,45 +11,36 @@ import { Router } from '@angular/router';
 })
 export class CharacterComponent implements OnInit, OnChanges {
   @Input() listCharaterUrls: string[] ;
-  characters: Character[]
-  searchText;
-  isLoading: boolean = false
+  public characters: Character[];
+  public searchText;
+  public isLoading = false;
   constructor(
     private characterService: CharacterService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getCharacters();
   }
 
-  ngOnChanges():void{
+  ngOnChanges(): void{
     this.getCharacters();
   }
 
   getCharacters(){
-    this.isLoading = true
-    if(this.listCharaterUrls !== null){
-      let listQuery = this.listCharaterUrls.map(url => this.characterService.getCharacter(url));
+    this.isLoading = true;
+    if (this.listCharaterUrls && this.listCharaterUrls.length){
+      const listQuery = this.listCharaterUrls.map(url => this.characterService.getCharacter(url));
       forkJoin(listQuery).subscribe(results => {
-           this.characters = results
-           this.isLoading = false
+           this.characters = results;
           }
         );
     }
-    else{
-    this.characterService.getCharacters().subscribe(characters => {
-      this.characters = characters
-      this.isLoading = false
-    })
-    }
-   
+    this.isLoading = false;
   }
 
-  selectCharacter(data){
-    localStorage.setItem('characterCurrent',data.url);
-    var id = data.url.split("/").slice(-1).pop()
-    this.router.navigate(['character-detail',id])
+  selectCharacter(url){
+    this.router.navigate(['character-detail', url.split(`/`).slice(-1).pop()]);
   }
 
 }

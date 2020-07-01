@@ -6,13 +6,14 @@
     width: 75px;
     height: 32px;
     background: #fff;
-    margin: 16px 24px 16px 30px;
+    margin: 20px 24px 20px 30px;
     float: left;
   }
 
-  nz-header {
-    position: fixed;
+   nz-header {
+    padding: 0;
     width: 100%;
+    z-index: 2;
   }
 
   [nz-menu] {
@@ -29,11 +30,18 @@
   }
 
   .inner-content {
-    background: #fff;
-    padding: 24px;
-    min-height: 380px;
+    background: rgba(243, 242, 242, 0.931);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    flex: 1;
   }
 
   nz-footer {
     text-align: center;
+  }
+
+  button {
+    margin-left: 800px;
   }

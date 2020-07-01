@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { MatNativeDateModule } from '@angular/material/core';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-// import {TableModule} from 'primeng/table';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzSelectModule } from 'ng-zorro-antd/select';
@@ -34,12 +32,13 @@ import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 @NgModule({
   declarations: [],
-  imports: [CommonModule, FormsModule,NzFormModule,ReactiveFormsModule,NzBadgeModule,NzCollapseModule,NzEmptyModule],
+  imports: [CommonModule, FormsModule, NzFormModule, ReactiveFormsModule, NzBadgeModule,
+    NzCollapseModule, NzEmptyModule],
   exports: [
-
     NzModalModule,
     NzInputModule,
     NzDatePickerModule,
@@ -72,7 +71,9 @@ import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
     NzInputModule,
     NzLayoutModule,
     NzBreadCrumbModule,
-    NzDescriptionsModule
+    NzDescriptionsModule,
+    NgxPaginationModule,
+    NzPaginationModule
   ]
 })
 export class AppMaterialModule {

@@ -9,35 +9,18 @@
   <i nz-icon nzType="search"></i>
 </ng-template>
 <br>
-<nz-table #columnTable [nzLoading]="isLoading" [nzData]="characters" [nzScroll]="{ x: '2000px' , y: '380px'}">
+<nz-table #fixedTable [nzLoading]="isLoading" [nzData]="characters" [nzScroll]="{y: '380px'}">
     <thead>
       <tr>
-        <th nzLeft>Name</th>
+        <th >Name</th>
         <th >Gender</th>
-        <th>Culture</th>
-        <th>Born</th>
-        <th>Died</th>
-        <th>Titles</th>
-        <th>Aliases</th>
-        <th >Books</th>
-        <th>POV Books</th>
-        <th >TV Series</th>
-        <th >Played By</th>
       </tr>
     </thead>
     <tbody>
-      <tr  *ngFor="let data of characters |filter:searchText">
-        <td nzLeft (click)="selectCharacter(data)"><a>{{ data.name }}</a></td>
+      <tr  *ngFor="let data of fixedTable.data | filter:searchText">
+        <td (click)="selectCharacter(data.url)"><a>{{ data.name }}</a></td>
         <td> {{ data.gender }}</td>
-        <td>{{ data.culture }}</td>
-        <td>{{ data.born }}</td>
-        <td>{{ data.died }}</td>
-        <td>{{ data.titles }}</td>
-        <td>{{ data.aliases }}</td>
-        <td >{{ data.books.length }}</td>
-        <td>{{ data.povBooks.length }}</td>
-        <td>{{ data.tvSeries }}</td>
-        <td >{{ data.playedBy }}</td>
       </tr>
     </tbody>
   </nz-table>
+

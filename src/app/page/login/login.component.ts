@@ -10,11 +10,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  submitted = false;
-  loading: boolean = false;
-  returnUrl: string;
+  public submitted = false;
+  public loading = false;
+  public returnUrl: string;
 
-  loginError: string;
   error: {};
   validateForm: FormGroup;
 
@@ -30,8 +29,8 @@ export class LoginComponent implements OnInit {
       password: [null, [Validators.required]],
       remember: [true]
     });
-    if(localStorage.getItem('currentUser')){
-      this.router.navigate(['books'])
+    if (localStorage.getItem('currentUser')){
+      this.router.navigate(['books']);
     }
   }
 
@@ -44,6 +43,6 @@ export class LoginComponent implements OnInit {
     }
     localStorage.setItem('currentUser', this.email.value);
     this.validateForm.reset();
-    this.router.navigate(['books'])
+    this.router.navigate(['books']);
   }
 }

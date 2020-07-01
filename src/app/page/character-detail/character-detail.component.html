@@ -20,3 +20,10 @@
       </nz-list>
     </nz-collapse-panel>
   </nz-collapse>
+  <br>
+  <nz-collapse nzAccordion nzBordered="false">
+    <nz-collapse-panel nzHeader="Books Of Character" nzActive="false">
+      <app-book [listBookUrls]="character.books"></app-book>
+    </nz-collapse-panel>
+  </nz-collapse>
+  

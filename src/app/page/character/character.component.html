@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr  *ngFor="let data of fixedTable.data |filter:searchText">
+      <tr  *ngFor="let data of fixedTable.data | filter:searchText">
         <td (click)="selectCharacter(data.url)"><a>{{ data.name }}</a></td>
         <td> {{ data.gender }}</td>
       </tr>

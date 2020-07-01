@@ -24,7 +24,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
       catchError(this.handleError<any>('error')));
   }
 
-
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       this.alertService.error(`${operation} failed: ${error.alertService}`);

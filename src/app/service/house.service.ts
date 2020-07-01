@@ -24,5 +24,4 @@ export class HouseService {
   getHouse(url: string): Observable<House> {
     return this.http.get<House>(url).pipe(map(res => res));
   }
-
 }

@@ -18,7 +18,6 @@ export class BookService {
   ) {
   }
 
-
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.bookUrl).pipe(map(res => res));
   }
@@ -26,6 +25,4 @@ export class BookService {
   getBookDetail(url: string): Observable<Book> {
     return this.http.get<Book>(url).pipe(map(res => res));
   }
-
-
 }

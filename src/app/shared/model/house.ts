@@ -10,4 +10,5 @@ currentLord: string;
 founded: string;
 ancestralWeapons: string[];
 swornMembers: string[];
+cadetBranches: string[];
 }

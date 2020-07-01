@@ -13,7 +13,20 @@
     <nz-descriptions-item nzTitle="Titles">{{house?.titles}}</nz-descriptions-item>
   </nz-descriptions>
   <nz-collapse nzAccordion nzBordered="false">
-    <nz-collapse-panel nzHeader="Characters Of House" nzActive="false">
-      <app-character [listCharaterUrls]="house?.swornMembers"></app-character>
+    <nz-collapse-panel nzHeader="Cadet Branches" nzActive="false">
+      <div *ngIf="house?.cadetBranches.length > 0; else empty">
+        <app-house [listHouseUrls]="house?.cadetBranches"></app-house>
+      </div>
     </nz-collapse-panel>
   </nz-collapse>
+  <br>
+  <nz-collapse nzAccordion nzBordered="false">
+    <nz-collapse-panel nzHeader="Characters Of House" nzActive="false">
+      <div *ngIf="house?.swornMembers.length > 0; else empty">
+      <app-character [listCharaterUrls]="house?.swornMembers"></app-character>
+      </div>
+    </nz-collapse-panel>
+  </nz-collapse>
+  <ng-template #empty>
+    <i nz-icon nzType="warning" nzTheme="outline" ></i>
+  </ng-template>

@@ -12,19 +12,19 @@
   </nz-descriptions>
   <nz-collapse nzAccordion nzBordered="false">
     <nz-collapse-panel nzHeader="Houses Of Character" nzActive="false">
-      <app-house [listHouseUrls]="character.allegiances"></app-house>
+      <app-house [listHouseUrls]="character?.allegiances"></app-house>
     </nz-collapse-panel>
   </nz-collapse>
   <br>
   <nz-collapse nzAccordion nzBordered="false">
     <nz-collapse-panel nzHeader="Books Of Character" nzActive="false">
-      <app-book [listBookUrls]="character.books"></app-book>
+      <app-book [listBookUrls]="character?.books"></app-book>
     </nz-collapse-panel>
   </nz-collapse>
   <br>
   <nz-collapse nzAccordion nzBordered="false">
     <nz-collapse-panel nzHeader="POVBooks Of Character" nzActive="false">
-      <app-book [listBookUrls]="character.povBooks"></app-book>
+      <app-book [listBookUrls]="character?.povBooks"></app-book>
     </nz-collapse-panel>
   </nz-collapse>
   

@@ -25,7 +25,10 @@ export class HouseDetailComponent implements OnInit {
 
   getHouse(){
     this.url = this.houseService.houseUrl + this.router.url.split(`/`).slice(-1).pop();
-    this.houseService.getHouse(this.url).subscribe(house => this.house = house);
+    this.houseService.getHouse(this.url).subscribe(house => {
+      this.house = house;
+      console.log(this.house.cadetBranches.length);
+    });
     this.isLoading = false;
   }
 

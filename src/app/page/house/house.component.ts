@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './house.component.html',
   styleUrls: ['./house.component.css']
 })
-export class HouseComponent implements OnInit, OnChanges {
+export class HouseComponent implements OnInit {
 
   @Input() listHouseUrls: string[] = [];
   public houses: House[];
@@ -22,11 +22,7 @@ export class HouseComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
-  //  this.getHouses();
-  }
-
-  ngOnChanges(){
-    this.getHouses();
+   this.getHouses();
   }
 
   getHouses(){

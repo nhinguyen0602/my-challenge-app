@@ -12,19 +12,27 @@
   </nz-descriptions>
   <nz-collapse nzAccordion nzBordered="false">
     <nz-collapse-panel nzHeader="Houses Of Character" nzActive="false">
+      <div *ngIf="character?.allegiances.length > 0; else empty">
       <app-house [listHouseUrls]="character?.allegiances"></app-house>
+      </div>
     </nz-collapse-panel>
   </nz-collapse>
   <br>
   <nz-collapse nzAccordion nzBordered="false">
     <nz-collapse-panel nzHeader="Books Of Character" nzActive="false">
-      <app-book [listBookUrls]="character?.books"></app-book>
+      <div *ngIf="character?.books.length > 0; else empty">
+        <app-book [listBookUrls]="character?.books"></app-book>
+      </div>
     </nz-collapse-panel>
   </nz-collapse>
   <br>
   <nz-collapse nzAccordion nzBordered="false">
     <nz-collapse-panel nzHeader="POVBooks Of Character" nzActive="false">
-      <app-book [listBookUrls]="character?.povBooks"></app-book>
+      <div *ngIf="character?.povBooks.length > 0; else empty">
+        <app-book [listBookUrls]="character?.povBooks"></app-book>
+      </div>
     </nz-collapse-panel>
   </nz-collapse>
-  
+  <ng-template #empty>
+    <i nz-icon nzType="warning" nzTheme="outline" ></i>
+  </ng-template>

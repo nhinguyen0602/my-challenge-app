@@ -49,8 +49,11 @@ registerLocaleData(en);
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }, NzMessageService,
-    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }],
+  providers: [
+      NzMessageService,
+    { provide: NZ_I18N, useValue: en_US },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

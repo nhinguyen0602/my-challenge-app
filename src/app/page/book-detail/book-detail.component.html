@@ -15,12 +15,20 @@
   </nz-descriptions>
   <nz-collapse nzAccordion nzBordered="false">
     <nz-collapse-panel nzHeader="List Of Character" nzActive="false">
-      <app-character [listCharaterUrls]="book?.characters"></app-character>
+      <div *ngIf="book?.characters.length > 0; else empty">
+        <app-character [listCharaterUrls]="book?.characters"></app-character>
+      </div>
     </nz-collapse-panel>
   </nz-collapse>
+  <br>
   <nz-collapse nzAccordion nzBordered="false">
     <nz-collapse-panel nzHeader="POV Character" nzActive="false">
-      <app-character [listCharaterUrls]="book?.povCharacters"></app-character>
+      <div *ngIf="book?.povCharacters.length > 0; else empty">
+        <app-character [listCharaterUrls]="book?.povCharacters"></app-character>
+      </div>
     </nz-collapse-panel>
   </nz-collapse>
+</ng-template>
+<ng-template #empty>
+  <i nz-icon nzType="warning" nzTheme="outline" ></i>
 </ng-template>

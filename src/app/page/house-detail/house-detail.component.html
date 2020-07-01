@@ -12,3 +12,8 @@
     <nz-descriptions-item nzTitle="Coat Of Arms">{{house?.coatOfArms}}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Titles">{{house?.titles}}</nz-descriptions-item>
   </nz-descriptions>
+  <nz-collapse nzAccordion nzBordered="false">
+    <nz-collapse-panel nzHeader="Characters Of House" nzActive="false">
+      <app-character [listCharaterUrls]="house?.swornMembers"></app-character>
+    </nz-collapse-panel>
+  </nz-collapse>

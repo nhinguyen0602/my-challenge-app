@@ -12,7 +12,7 @@ export class HouseDetailComponent implements OnInit {
 
   public house: House;
   private url: string;
-  public isLoading = false;
+  public isLoading = true;
 
   constructor(
     private houseService: HouseService,
@@ -26,6 +26,7 @@ export class HouseDetailComponent implements OnInit {
   getHouse(){
     this.url = this.houseService.houseUrl + this.router.url.split(`/`).slice(-1).pop();
     this.houseService.getHouse(this.url).subscribe(house => this.house = house);
+    this.isLoading = false;
   }
 
 }
